@@ -1,15 +1,10 @@
 
-var mysql = require('mysql')
-var con = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root',
-	password : '',
-	database : 'warrix_erp'
-});
+var mysql = require('../../config/mysql');
+var db = mysql();
 
 exports.getIndex = function(callback){
 	
-	con.query("SELECT * FROM customer_online",
+	db.query("SELECT * FROM customer_online",
             function (err, rows) {
                 //here we return the results of the query
                 callback(err, rows); 
@@ -20,7 +15,7 @@ exports.getIndex = function(callback){
 
 exports.test = function(callback){
 	
-	con.query("SELECT * FROM customer_online",
+	db.query("SELECT * FROM customer_online",
             function (err, rows) {
                 //here we return the results of the query
                 callback(err, rows); 
