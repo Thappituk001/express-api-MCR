@@ -1,8 +1,8 @@
-var config = require('./config');
-var mongoose = require('mongoose');
+const config = require('./config');
+const mongoose = require('mongoose');
 
 
 module.exports  = function(){
-	var db = mongoose.connect(config.mongoUri);
+	const db = mongoose.connect(config.mongoUri);
 	return db;
 }

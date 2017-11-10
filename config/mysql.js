@@ -1,10 +1,15 @@
-var config = require('./config');
-// // {host     : 'localhost',user     : 'root',password : '',database : 'warrix_erp'}
-var mysql = require('mysql');
+// const config = require('./config');
+
+const mysql = require('mysql');
 
 module.exports  = function(){
 	
-	var db = mysql.createConnection(config);//more config in ../env/development.js
+	const db = mysql.createConnection({
+		host     : 'localhost',
+		user     : 'root',
+		password : '',
+		database : 'warrix_erp'
+	});
 
 	return db;
-}
+};

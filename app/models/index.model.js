@@ -1,27 +1,20 @@
 
-var mysql = require('../../config/mysql');
-var db = mysql();
+const mysql = require('../../config/mysql');
+const db = mysql();
 
-exports.getIndex = function(callback){
-	
-	db.query("SELECT * FROM customer_online",
-            function (err, rows) {
-                //here we return the results of the query
-                callback(err, rows); 
-            }
-        );    
-};//getIndex function();
+const User={
+	getIndex:function(callback)
+  	{
+        return db.query("SELECT * FROM customer_online_account",callback);
+    },
+    checkByIP:function(data,callback)
+    {
+        return db.query("SELECT * FROM great where ip_address=?",[data.ip],callback);
+    }
 
+};
+module.exports=User;
 
-exports.test = function(callback){
-	
-	db.query("SELECT * FROM customer_online",
-            function (err, rows) {
-                //here we return the results of the query
-                callback(err, rows); 
-            }
-        );    
-};//getIndex function();
 
 
 
